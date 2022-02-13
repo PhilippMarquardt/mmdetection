@@ -195,7 +195,7 @@ if __name__ == '__main__':
         author_email='openmmlab@gmail.com',
         keywords='computer vision, object detection',
         url='https://github.com/open-mmlab/mmdetection',
-        packages=find_packages(exclude=('configs', 'tools', 'demo')),
+        packages=find_packages(exclude=('tools', 'demo')),
         include_package_data=True,
         classifiers=[
             'Development Status :: 5 - Production/Stable',
@@ -214,6 +214,7 @@ if __name__ == '__main__':
             'tests': parse_requirements('requirements/tests.txt'),
             'build': parse_requirements('requirements/build.txt'),
             'optional': parse_requirements('requirements/optional.txt'),
+            'mminstall': parse_requirements('requirements/mminstall.txt'),
         },
         ext_modules=[],
         cmdclass={'build_ext': BuildExtension},
