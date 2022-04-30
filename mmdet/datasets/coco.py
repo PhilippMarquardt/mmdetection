@@ -18,6 +18,7 @@ from .api_wrappers import COCO, COCOeval
 from .builder import DATASETS
 from .custom import CustomDataset
 
+
 @DATASETS.register_module()
 class CocoDataset(CustomDataset):
 
@@ -57,9 +58,6 @@ class CocoDataset(CustomDataset):
                (127, 167, 115), (59, 105, 106), (142, 108, 45), (196, 172, 0),
                (95, 54, 80), (128, 76, 255), (201, 57, 1), (246, 0, 122),
                (191, 162, 208)]
-
-    def __init__(self):
-        print("YIKES")
 
     def load_annotations(self, ann_file):
         """Load annotation from COCO style annotation file.
