@@ -304,29 +304,29 @@ class LoadAnnotations:
         """
         empty = np.zeros((img_h, img_w))
         
-        print(len(mask_ann))
+        # print(len(mask_ann))
         cont = np.array(mask_ann[0]).reshape(-1, 1, 2)
         cv2.drawContours(empty, [cont], 0, 255, -1)
-        name = f"image_one_xd{self.counter}.png"
-        name2 = f"image_two_xd{self.counter}.png"
+        # name = f"image_one_xd{self.counter}.png"
+        # name2 = f"image_two_xd{self.counter}.png"
         
-        if isinstance(mask_ann, list):
-            # polygon -- a single object might consist of multiple parts
-            # we merge all parts into one mask rle code
-            rles = maskUtils.frPyObjects(mask_ann, img_h, img_w)
-            rle = maskUtils.merge(rles)
-        elif isinstance(mask_ann['counts'], list):
-            # uncompressed RLE
-            rle = maskUtils.frPyObjects(mask_ann, img_h, img_w)
-        else:
-            # rle
-            rle = mask_ann
-        mask = maskUtils.decode(rle)
-        if self.counter < 100:
-            cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name, empty)
-            cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name2, mask * 255.)
-        self.counter += 1
-        return mask
+        # if isinstance(mask_ann, list):
+        #     # polygon -- a single object might consist of multiple parts
+        #     # we merge all parts into one mask rle code
+        #     rles = maskUtils.frPyObjects(mask_ann, img_h, img_w)
+        #     rle = maskUtils.merge(rles)
+        # elif isinstance(mask_ann['counts'], list):
+        #     # uncompressed RLE
+        #     rle = maskUtils.frPyObjects(mask_ann, img_h, img_w)
+        # else:
+        #     # rle
+        #     rle = mask_ann
+        # mask = maskUtils.decode(rle)
+        # if self.counter < 100:
+        #     cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name, empty)
+        #     cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name2, mask * 255.)
+        # self.counter += 1
+        return empty
 
     def process_polygons(self, polygons):
         """Convert polygons to list of ndarray and filter invalid polygons.
