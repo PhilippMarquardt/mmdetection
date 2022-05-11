@@ -306,7 +306,7 @@ class LoadAnnotations:
         
         # print(len(mask_ann))
         cont = np.array(mask_ann[0]).reshape(-1, 1, 2)
-        cv2.drawContours(empty, [cont], 0, 255, -1)
+        cv2.drawContours(empty, [cont], 0, 1, -1)
         # name = f"image_one_xd{self.counter}.png"
         # name2 = f"image_two_xd{self.counter}.png"
         
