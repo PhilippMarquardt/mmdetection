@@ -243,6 +243,7 @@ class LoadAnnotations:
         self.denorm_bbox = denorm_bbox
         self.file_client_args = file_client_args.copy()
         self.file_client = None
+        self.counter = 0
 
     def _load_bboxes(self, results):
         """Private function to load bounding box annotations.
@@ -306,7 +307,9 @@ class LoadAnnotations:
         print(len(mask_ann))
         cont = np.array(mask_ann[0]).reshape(-1, 1, 2)
         cv2.drawContours(empty, [cont], 0, 255, -1)
-        cv2.imwrite(r"F:\source\repos\CocoInvestigation\xd.png", empty)
+        name = f"xd{self.counter}.png"
+        name2 = f"xd2{self.counter}.png"
+        cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name, empty)
         if isinstance(mask_ann, list):
             # polygon -- a single object might consist of multiple parts
             # we merge all parts into one mask rle code
@@ -319,7 +322,7 @@ class LoadAnnotations:
             # rle
             rle = mask_ann
         mask = maskUtils.decode(rle)
-        cv2.imwrite(r"F:\source\repos\CocoInvestigation\xd2.png", mask * 255.)
+        cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name2, mask * 255.)
         return mask
 
     def process_polygons(self, polygons):
