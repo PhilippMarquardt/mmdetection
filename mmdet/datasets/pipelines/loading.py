@@ -319,7 +319,7 @@ class LoadAnnotations:
             # rle
             rle = mask_ann
         mask = maskUtils.decode(rle)
-        cv2.imwrite(r"F:\source\repos\CocoInvestigation\xd2.png", mask)
+        cv2.imwrite(r"F:\source\repos\CocoInvestigation\xd2.png", mask * 255.)
         return mask
 
     def process_polygons(self, polygons):
