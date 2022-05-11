@@ -1,9 +1,11 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import os.path as osp
+from turtle import width
 
 import mmcv
 import numpy as np
 import pycocotools.mask as maskUtils
+import cv2
 
 from mmdet.core import BitmapMasks, PolygonMasks
 from ..builder import PIPELINES
@@ -299,7 +301,10 @@ class LoadAnnotations:
         Returns:
             numpy.ndarray: The decode bitmap mask of shape (img_h, img_w).
         """
-        print(mask_ann.shape)
+        empty = np.zeros((img_h, img_w))
+        
+        print(len(mask_ann))
+        cont = np.array(mask_ann[0]).reshape(-1, 1, 2)
         if isinstance(mask_ann, list):
             # polygon -- a single object might consist of multiple parts
             # we merge all parts into one mask rle code
