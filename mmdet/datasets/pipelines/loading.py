@@ -305,6 +305,8 @@ class LoadAnnotations:
         
         print(len(mask_ann))
         cont = np.array(mask_ann[0]).reshape(-1, 1, 2)
+        cv2.drawContours(empty, [cont], 0, 255, -1)
+        cv2.imwrite(r"F:\source\repos\CocoInvestigation\xd.png", empty)
         if isinstance(mask_ann, list):
             # polygon -- a single object might consist of multiple parts
             # we merge all parts into one mask rle code
