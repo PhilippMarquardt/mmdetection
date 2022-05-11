@@ -323,6 +323,7 @@ class LoadAnnotations:
             rle = mask_ann
         mask = maskUtils.decode(rle)
         cv2.imwrite(r"F:\source\repos\CocoInvestigation/" + name2, mask * 255.)
+        self.counter += 1
         return mask
 
     def process_polygons(self, polygons):
