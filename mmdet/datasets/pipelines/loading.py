@@ -299,7 +299,7 @@ class LoadAnnotations:
         Returns:
             numpy.ndarray: The decode bitmap mask of shape (img_h, img_w).
         """
-        print("Uwu")
+        print(mask_ann.shape)
         if isinstance(mask_ann, list):
             # polygon -- a single object might consist of multiple parts
             # we merge all parts into one mask rle code
